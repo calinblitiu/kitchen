@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<style type="text/css">
+		.parameter-div
+		{
+			width: 100%;
+			height: 400px;
+			background: #eee;
+			display: inline-flex;
+		}
+
+		.parameter-item
+		{
+			width: 25%;
+			height: 100%;
+			background: #ddd;
+			
+		}
+
+		.parameter-content
+		{
+			background: #aaa;
+			width: 100%;
+			height: 100%;
+		}
+
+		.parameter-each
+		{
+			width: 100%;
+			height: 200px;
+			background: #999;
+			padding:2px 10px;
+
+		}
+
+		.parameter-img
+		{
+			width: calc(100% - 15px);
+			height: calc(100% - 1px);
+
+			cursor: pointer;
+		}
+
+		.parameter-img:hover{
+			border: solid 2px;
+		}
+
+		.parameter-title
+		{
+			width: 100%;
+			height: 50px;
+			text-align: center;
+			font-size: 20px;
+		}
+
+		.image-process-div
+		{
+			width: 100%;
+			height: 600px;
+			background: #eee;
+		}
+
+		.process-image-list
+		{
+			width: 100%;
+			height: 100px;
+			background: #aaa;
+			display: inline-flex;
+		}
+
+		.processing-div
+		{
+			width: 50%;
+			height: 500px;
+			background: #ccc;
+			position: relative;
+		}
+
+		.drop-changeable-list
+		{
+			width: 50%;
+			height: 500px;
+			background: #ccc;
+			display: inline-flex;
+			overflow: scroll;
+		}
+
+		.process-list-image
+		{
+			width: 100%;
+			height: 100%;
+		}
+
+		.process-list-image-div
+		{
+			width: 80px;
+			height: 80px;
+			margin: 10px;
+			border: solid 1px ;
+			cursor: pointer;
+
+		}
+
+		.main-img-process
+		{
+			width: 100%;
+			height: 500px;
+		}
+
+		.drop-changable-item
+		{
+			width: 500px;
+			height: 500px;
+			position: relative;
+			margin: 10px;
+		}
+
+		.drop-changable-main-image, .drop-changable-countertop-image, .drop-changable-floor-image, .drop-changable-backsplash-image, .drop-changable-cabinet-image
+		{
+			width: 100%;
+			height: 100%;
+			margin: 25px;
+			border: solid 2px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+		}
+
+		.countertop-img-process, .floor-img-process,  .backsplash-img-process, .cabinet-img-process
+		{
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+
+		}
+	</style>
+	<script src="interact.min.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+
+<body>
+
+
+	<div class="image-process-div">
+		<div class="process-image-list">
+			<div class="process-list-image-div " data-image-kind="B">
+				<img src="B/main.jpg" class="process-list-image" >	
+			</div>
+			<div class="process-list-image-div " data-image-kind="C">
+				<img src="C/main.jpg" class="process-list-image">
+			</div>
+		</div>
+
+		<div style="width: 100%;height: 500px;display: inline-flex;">
+						
+			<div class="processing-div" data-countertop="1" data-backslash="1" data-cabinet="1" data-floor="1">
+				<img src="B/main.jpg" class="main-img-process">
+				<img src="B/countertop/1.png" class="countertop-img-process">
+				<img src="B/floor/1.png" class="floor-img-process">
+				<img src="B/backsplash/1.png" class="backsplash-img-process">
+				<img src="B/cabinet/1.png" class="cabinet-img-process">
+				<div class="draggable" style="width: 100%; height: 100%; position: absolute;top: 0; left: 0;z-index: 1000 "></div>
+			</div>
+
+			<div class="drop-changeable-list">
+				<div class="drop-changable-item dropzone" data-image-kind="B">
+					<img src="B/main.jpg" class="drop-changable-main-image">
+					<img src="" class="drop-changable-countertop-image">
+					<img src="" class="drop-changable-floor-image">
+					<img src="" class="drop-changable-backsplash-image">
+					<img src="" class="drop-changable-cabinet-image">
+				</div>
+
+				<div class="drop-changable-item dropzone" data-image-kind="C">
+					<img src="C/main.jpg" class="drop-changable-main-image">
+					<img src="" class="drop-changable-countertop-image">
+					<img src="" class="drop-changable-floor-image">
+					<img src="" class="drop-changable-backsplash-image">
+					<img src="" class="drop-changable-cabinet-image">
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="parameter-div">
+
+		<div class="parameter-item parameter-item-countertop">
+			<div class="parameter-title">Countertop:</div>
+			<div class="parameter-content">
+				<div class="parameter-each ">
+					<img src="parameter/countertop/1.jpg" class="parameter-img"  data-parameter-no="1">
+				</div>
+				<div class="parameter-each ">
+					<img src="parameter/countertop/2.jpg" class="parameter-img" data-parameter-no="2">
+				</div>
+			</div>
+		</div>
+
+		<div class="parameter-item parameter-item-backsplash">
+			<div class="parameter-title">Backsplash:</div>
+			<div class="parameter-content">
+				<div class="parameter-each">
+					<img src="parameter/backsplash/1.jpg" class="parameter-img"  data-parameter-no="1">
+				</div>
+				<div class="parameter-each">
+					<img src="parameter/backsplash/2.jpg" class="parameter-img" data-parameter-no="2">
+				</div>
+			</div>
+		</div>
+
+		<div class="parameter-item parameter-item-cabinet">
+			<div class="parameter-title">Cabinet Color:</div>
+			<div class="parameter-content">
+				<div class="parameter-each">
+					<img src="parameter/cabinet/1.jpg" class="parameter-img" data-parameter-no="1">
+				</div>
+				<div class="parameter-each">
+					<img src="parameter/cabinet/2.jpg" class="parameter-img"  data-parameter-no="2">
+				</div>
+			</div>
+		</div>
+
+		<div class="parameter-item parameter-item-floor">
+			<div class="parameter-title">Floor:</div>
+			<div class="parameter-content">
+				<div class="parameter-each">
+					<img src="parameter/floor/1.jpg" class="parameter-img"  data-parameter-no="1">
+				</div>
+				<div class="parameter-each">
+					<img src="parameter/floor/2.jpg" class="parameter-img" data-parameter-no="2">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="image_process.js"></script>
+</body>
+</html>
